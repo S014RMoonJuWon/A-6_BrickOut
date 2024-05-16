@@ -1,0 +1,68 @@
+{
+    "name": "Paddle",
+    "maps": [
+        {
+            "name": "Paddle",
+            "id": "e250ff8f-1bd3-4406-be61-1f59a51db878",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "1ed09d04-6c87-45d6-bdc1-4e9b87be0098",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "2efdf6aa-0b7a-4419-a8b4-ec01e5a4732a",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "267aa102-c97c-4c07-9b88-ed7b8a6ce6d0",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ad092aef-dee9-4d7e-8145-1c98138a22c9",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Paddle",
+            "bindingGroup": "Paddle",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
