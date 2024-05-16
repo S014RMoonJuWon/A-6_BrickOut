@@ -19,12 +19,6 @@ public class Ball : MonoBehaviour
     {
         transform.Translate(direction * speed * Time.deltaTime);
     }
-    
-    public void Reset()
-    {
-        _rigidbody.velocity = Vector2.zero;
-        transform.position = Vector2.zero;
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -32,6 +26,6 @@ public class Ball : MonoBehaviour
         {
             Vector2 vector2 = collision.contacts[0].normal;
             direction = Vector2.Reflect(direction, vector2).normalized;
-        }   
+        }
     }
 }
