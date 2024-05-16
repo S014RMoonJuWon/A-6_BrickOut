@@ -1,4 +1,4 @@
-# A-6-BrickOut
+# A-6_BrickOut
 
 팀장 : 옥 인
 
