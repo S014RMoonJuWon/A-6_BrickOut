@@ -5,7 +5,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float speed;
-    public Rigidbody2D _rigidbody;
+    
+    private Rigidbody2D _rigidbody;
 
     Vector2 direction = Vector2.zero;
 
