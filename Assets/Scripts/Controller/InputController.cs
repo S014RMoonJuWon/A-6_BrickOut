@@ -19,7 +19,6 @@ public class InputController : PaddleController
 
     public void OnFire(InputValue value)
     {
-        Debug.Log(value.isPressed? "눌림":"안눌림");
         sideMovement.ApplyFire(value.isPressed);
     }
 }
