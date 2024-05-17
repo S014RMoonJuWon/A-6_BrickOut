@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public IEnumerator BallCollisionEnter2D(Transform ballTr, Rigidbody2D ballRg, Ball ballCs, GameObject gameObject, Transform gameObjectTr)
+    Rigidbody2D rb;
+
+    private void Start()
     {
-        Debug.Log(gameObject);
-        yield return null;
+        rb = GetComponent<Rigidbody2D>();
     }
 }
