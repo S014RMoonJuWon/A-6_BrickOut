@@ -12,7 +12,6 @@ public class Score : MonoBehaviour
 
     private void Awake()
     {
-        scoreTxt = GetComponent<TextMeshProUGUI>();
         score = 0;
     }
     void Start()

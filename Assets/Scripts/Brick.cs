@@ -14,7 +14,7 @@ public class Brick : MonoBehaviour
 
     private void Awake()
     {
-        scoreTxt = GetComponent<TextMeshProUGUI>();
+
     }
 
     void Start()
