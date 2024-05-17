@@ -43,18 +43,15 @@ public class SideMovement : MonoBehaviour
 
     internal void ApplyFire(bool isPressed)
     {
-        
-
         if (rb == null)
         {
             isFire = isPressed;
             rb = ball.AddComponent<Rigidbody2D>();
             rb.gravityScale = 0f;
             ball.GetComponent<Ball>().isFire = true;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;            
             rb.constraints = RigidbodyConstraints2D.FreezePositionY;
             ball.transform.parent = null;
         }
-     
     }
 }
