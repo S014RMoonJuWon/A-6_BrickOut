@@ -7,7 +7,7 @@ public class MakeBrick : MonoBehaviour
     public GameObject panel;
     public GameObject brick;
     public Camera camera;
-    public void ChooseLevel()
+    public void ChooseLevel2()
     {
         panel.SetActive(false);
         camera.orthographicSize = 10;
@@ -22,7 +22,7 @@ public class MakeBrick : MonoBehaviour
         }
     }
 
-   public  void ChooseLevel2()
+   public  void ChooseLevel()
     {
         panel.SetActive(false);
         camera.orthographicSize = 6;
