@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float speed;
-    private Rigidbody2D _rigidbody;
+
     public bool isFire;
 
     Vector2 direction = Vector2.zero;
