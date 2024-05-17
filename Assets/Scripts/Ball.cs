@@ -12,7 +12,6 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        //rigidbody = GetComponent<Rigidbody2D>();
         direction = Vector2.up.normalized;
     }
 
@@ -22,13 +21,7 @@ public class Ball : MonoBehaviour
             transform.Translate(direction * speed * Time.deltaTime);
        
     }
-    void Launch()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.velocity = Vector2.up * speed;
-        direction = _rigidbody.velocity;
 
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("brick"))
