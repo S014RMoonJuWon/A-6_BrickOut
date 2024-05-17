@@ -1,22 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Brick : MonoBehaviour
 {
     public GameObject brick;
+
+    public TextMeshProUGUI scoreTxt;
+
+    [SerializeField] Score score;
+
+    private void Awake()
+    {
+        scoreTxt = GetComponent<TextMeshProUGUI>();
+    }
+
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(brick);
+        Destroy(this.gameObject);
+        score.score += 1;
     }
 }
