@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public GameManager GameManager;
+    public float BallOut = -5f;
     public float speed;
 
     public bool isFire;
@@ -19,7 +21,14 @@ public class Ball : MonoBehaviour
     {
         if (isFire)
             transform.Translate(direction * speed * Time.deltaTime);
-       
+
+        if (transform.position.y < BallOut)
+        {
+            Debug.Log("BallOut!");
+            GameManager.GameOver();
+            isFire = false;
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
