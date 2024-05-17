@@ -12,8 +12,9 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        direction = Vector2.up.normalized;
         _rigidbody = GetComponent<Rigidbody2D>();
+        direction = Vector2.up.normalized;
+       
     }
 
     private void Update()
