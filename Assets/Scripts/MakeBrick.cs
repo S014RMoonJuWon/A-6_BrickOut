@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MackBrick : MonoBehaviour
+public class MakeBrick : MonoBehaviour
 {
     public GameObject brick;
     void Start()
