@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    Rigidbody2D rb;
 
-    void Update()
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 }

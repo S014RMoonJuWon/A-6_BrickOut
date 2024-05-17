@@ -15,8 +15,15 @@ public class Brick : MonoBehaviour
     {
         
     }
+<<<<<<< HEAD
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(brick);
+=======
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+>>>>>>> MJW_BrickOut
     }
 }
