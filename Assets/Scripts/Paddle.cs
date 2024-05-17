@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    void Start()
+    public IEnumerator BallCollisionEnter2D(Transform ballTr, Rigidbody2D ballRg, Ball ballCs, GameObject gameObject, Transform gameObjectTr)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        Debug.Log(gameObject);
+        yield return null;
     }
 }
