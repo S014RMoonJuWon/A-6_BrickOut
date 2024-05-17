@@ -6,7 +6,11 @@ public class MakeBrick : MonoBehaviour
 {
     public GameObject panel;
     public GameObject brick;
-    public Camera camera;
+    Camera camera;
+    private void Awake()
+    {
+        camera = Camera.main;
+    }
     public void ChooseLevel2()
     {
         panel.SetActive(false);
