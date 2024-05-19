@@ -38,7 +38,7 @@ public class StartButton : MonoBehaviour
     {
         DataManager.instance.level = (int)difficulty;
         loadingImages.SetActive(true);
-        Invoke("StartGame", 7.5f);
+        Invoke("StartGame", 1.5f);
     }
     public void OnplayerNamebox()
     {

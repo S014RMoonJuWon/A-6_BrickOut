@@ -4,17 +4,41 @@ using UnityEngine;
 
 public class MakeBrick : MonoBehaviour
 {
-    public GameObject panel;
     public GameObject brick;
+    public GameObject paddle;
     Camera camera;
     private void Awake()
     {
         camera = Camera.main;
+
+        switch (DataManager.instance.level)
+        {
+            case 0: EasyLevel();
+                break;
+            case 1: NormalLevel();
+                break;
+            case 2: HardLevel();
+                break;
+        }
     }
-    public void ChooseLevel2()
+    private void HardLevel()
     {
-        panel.SetActive(false);
+        camera.orthographicSize = 15;
+        paddle.transform.position = new Vector2(0, -12.5f);
+        for (int i = 0; i < 372; i++)
+        {
+            GameObject makeBrick = Instantiate(brick, this.transform);
+
+            float x = (i % 31) * 1.6f - 24.0f;
+            float y = (i / 31) * 1.3f;
+
+            makeBrick.transform.position = new Vector2(x, y - 3f);
+        }
+    }
+    private void NormalLevel()
+    {
         camera.orthographicSize = 10;
+        paddle.transform.position = new Vector2(0, -8.0f);
         for (int i = 0; i < 75; i++) 
         {
             GameObject makeBrick = Instantiate(brick, this .transform);
@@ -26,9 +50,8 @@ public class MakeBrick : MonoBehaviour
         }
     }
 
-   public  void ChooseLevel()
-    {
-        panel.SetActive(false);
+   private  void EasyLevel()
+    {;
         camera.orthographicSize = 6;
         for (int i = 0; i < 33; i++)
         {
@@ -39,10 +62,5 @@ public class MakeBrick : MonoBehaviour
 
             makeBrick.transform.position = new Vector2(x, y);
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
