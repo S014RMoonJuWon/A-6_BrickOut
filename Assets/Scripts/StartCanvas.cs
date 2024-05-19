@@ -15,8 +15,6 @@ public class StartButton : MonoBehaviour
 
     public TMP_InputField inputPlayerName;
 
-    public Animator animator;
-
     // ³­ÀÌµµ
     public enum Difficulty
     {
@@ -34,24 +32,22 @@ public class StartButton : MonoBehaviour
         easyButton.onClick.AddListener(() => SetDifficulty(Difficulty.Easy));
         normalButton.onClick.AddListener(() => SetDifficulty(Difficulty.Normal));
         hardButton.onClick.AddListener(() => SetDifficulty(Difficulty.Hard));
+        
     }
     public void SetDifficulty(Difficulty difficulty)
     {
         DataManager.instance.level = (int)difficulty;
         loadingImages.SetActive(true);
-        while (true)
-        {
-            if (animator.GetCurrentAnimatorStateInfo(8).IsName("LoadAni"))
-            {
-                break;
-            }
-        }
-        SceneManager.LoadScene("GameScene");
+        Invoke("StartGame", 7.5f);
     }
-    public void GameStart()
+    public void OnplayerNamebox()
     {
         startBtn.SetActive(false);
         playerNameBox.SetActive(true);
+    }
+    private void StartGame()
+    {
+        SceneManager.LoadScene("GameScene");
     }
     public void OnClickNameBtn()
     {
