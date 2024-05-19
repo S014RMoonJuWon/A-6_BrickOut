@@ -6,9 +6,13 @@ public class MakeBrick : MonoBehaviour
 {
     public GameObject brick;
     public GameObject paddle;
+
+    public string[] stage;
+    public int[] brickList = {0,1,2,3,4};
     Camera camera;
     private void Awake()
     {
+        
         camera = Camera.main;
 
         switch (DataManager.instance.level)
@@ -33,6 +37,7 @@ public class MakeBrick : MonoBehaviour
             float y = (i / 31) * 1.3f;
 
             makeBrick.transform.position = new Vector2(x, y - 3f);
+            makeBrick.GetComponent<Brick>().BrickColor(brickList[Random.Range(0,5)]);
         }
     }
     private void NormalLevel()
