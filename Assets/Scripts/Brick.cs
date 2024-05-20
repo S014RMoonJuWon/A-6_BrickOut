@@ -11,7 +11,6 @@ public class Brick : MonoBehaviour
     public SpriteRenderer brickRenderer;
     private int life;
     private int score;
-    private string objectTag = "DeleteBrick";
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -40,14 +39,19 @@ public class Brick : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    public void BrickColor(int color)
+    public void BrickOption(int color)
     {
         brickRenderer.sprite = Resources.Load<Sprite>($"Images/Bricks/brick{color}");
         life = color + 1;
         score = 10 * (color + 1);
     }
-    public void AddTag()
+    public void AddTag(int brick)
     {
-        this.gameObject.tag = objectTag;
+        if (brick == 0) this.gameObject.tag = "DeleteBrick";
+        else if (brick == 6) 
+        {
+            this.gameObject.tag = "HardBrick";
+            brickRenderer.color = new(62f/255f, 4f/255f, 72f/255f);
+        }
     }
 }

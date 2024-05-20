@@ -11,6 +11,4 @@ public class PaddleController : MonoBehaviour
     {
         OnMoveEvent?.Invoke(direction);
     }
-
-    
 }

@@ -1,7 +1,9 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,16 +12,22 @@ public class MakeBrick : MonoBehaviour
     public GameObject brick;
     public GameObject paddle;
 
+    public int stageCount = 0;
+
     private string objectTag = "DeleteBrick";
-    public string[] stage;
+
+    Stage stage;
     Camera camera;
     private void Awake()
     {
         camera = Camera.main;
+        stage = GetComponent<Stage>();  
 
         switch (DataManager.instance.level)
         {
-            case 0: EasyLevel();
+            case 0:
+                stage.EasyStage();
+                EasyLevel();
                 break;
             case 1: NormalLevel();
                 break;
@@ -40,7 +48,6 @@ public class MakeBrick : MonoBehaviour
             float y = (i / 31) * 1.3f;
 
             makeBrick.transform.position = new Vector2(x, y - 3f);
-            makeBrick.GetComponent<Brick>().BrickColor(Random.Range(0,5));
         }
     }
     private void NormalLevel()
@@ -56,30 +63,40 @@ public class MakeBrick : MonoBehaviour
 
             makeBrick.transform.position = new Vector2(x, y);
 
-            makeBrick.GetComponent<Brick>().BrickColor(Random.Range(0, 5));
+        }
+    }
+    public void EasyLevel()
+    {
+        camera.orthographicSize = 6;
+        string currentStr = stage.stageNumber[stageCount].Replace("\n", "");
+        currentStr = currentStr.Replace(" ", "");
+
+        for (int i = 0; i < currentStr.Length; i++)
+        {
+            GameObject makeBrick = Instantiate(brick, this.transform);
+
+            float x = (i % 11) * 1.55f - 7.5f;
+            float y = (i / 11) * 0.7f;
+
+            makeBrick.transform.position = new Vector2(x - 0.25f , y + 0.75f);
+
+
+            GetOption(makeBrick, i, currentStr);
         }
     }
 
-   private  void EasyLevel()
-   {
-       camera.orthographicSize = 6;
-       for (int i = 0; i < 55; i++)
-       {
-           GameObject makeBrick = Instantiate(brick, this.transform);
+    public void GetOption(GameObject makeBrick, int i, string currentStr)
+    {
+        char A = currentStr[i]; string currentName = "brick"; int currentB = 0;
 
-           float x = (i % 11) * 1.55f - 7.5f;
-           float y = (i / 11) * 0.7f;
+        currentB = int.Parse(A.ToString());
+        makeBrick.gameObject.name = currentName;
+        makeBrick.gameObject.GetComponent<Brick>().BrickOption(currentB - 1);
 
-           makeBrick.transform.position = new Vector2(x, y + 1.8f);
+        if (currentB == 0) makeBrick.GetComponent<Brick>().AddTag(0);
+        else if (currentB == 6) makeBrick.GetComponent<Brick>().AddTag(6);
+    }
 
-           if (i < 11) makeBrick.GetComponent<Brick>().BrickColor(0);
-           else if (i < 22) makeBrick.GetComponent<Brick>().BrickColor(1);
-           else makeBrick.GetComponent<Brick>().BrickColor(2);
-
-           if (i == 8 || i == 19 || i == 35 || i == 46) makeBrick.GetComponent<Brick>().AddTag();
-           else if (i >= 24 &&  i <= 30) makeBrick.GetComponent<Brick>().AddTag();
-        }
-   }
     public void DeleteBrick()
     {
         GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag(objectTag);
