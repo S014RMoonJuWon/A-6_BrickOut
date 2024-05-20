@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        SoundManager.instance.StopBgm("main");
     }
     public void LoadMainMenu()
     {
