@@ -13,7 +13,7 @@ public class Brick : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        score.UpdateScoreText(1);
+        GameManager.Instance.AddScore(1);
         Destroy(this.gameObject);
     }
     public void BrickColor(int color)

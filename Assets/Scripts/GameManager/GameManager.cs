@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         currentScore += score;
+        Debug.Log(score);
         if (currentScore > highScore)
         {
             highScore = currentScore;
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
             if (highScore < currentScore)
             {
                 PlayerPrefs.SetFloat(hs, currentScore);
-
+                Debug.Log(highScore);
             }
             else
             {
