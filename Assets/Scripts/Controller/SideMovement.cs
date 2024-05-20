@@ -17,6 +17,8 @@ public class SideMovement : MonoBehaviour
 
     private void Awake()
     {
+        rb = ball.GetComponent<Rigidbody2D>();
+        rb.isKinematic = true; // 공이 발사되기 전에는 물리적 영향을 받지 않도록 설정    
         controller = GetComponent<PaddleController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
     }
@@ -43,14 +45,11 @@ public class SideMovement : MonoBehaviour
 
     internal void ApplyFire(bool isPressed)
     {
-        if (rb == null)
+        if (isPressed)
         {
             isFire = isPressed;
-            rb = ball.AddComponent<Rigidbody2D>();
-            rb.gravityScale = 0f;
+            rb.isKinematic = false;
             ball.GetComponent<Ball>().isFire = true;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;            
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
             ball.transform.parent = null;
         }
     }
