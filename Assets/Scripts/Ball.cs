@@ -38,7 +38,6 @@ public class Ball : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("BallOut!");
             GameManager.GameOver();
-            score.UpdateScoreText(1);
         }
     }
 }
