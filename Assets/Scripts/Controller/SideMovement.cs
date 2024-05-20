@@ -40,6 +40,7 @@ public class SideMovement : MonoBehaviour
     private void ApplyMovement(Vector2 direction)
     {
         direction = direction * speed;
+        //transform.position =new Vector2( Mathf.Clamp(transform.position.x, -7.6f, 7.7f),transform.position.y);
         movementRigidbody.velocity = direction;
     }
 
