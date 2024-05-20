@@ -71,15 +71,14 @@ public class MakeBrick : MonoBehaviour
            float y = (i / 11) * 0.7f;
 
            makeBrick.transform.position = new Vector2(x, y + 1.8f);
+
            if (i < 11) makeBrick.GetComponent<Brick>().BrickColor(0);
            else if (i < 22) makeBrick.GetComponent<Brick>().BrickColor(1);
            else makeBrick.GetComponent<Brick>().BrickColor(2);
 
-           if (i == 8 || i == 18 || i <= 23 && i >= 28 || i == 33 || i == 43)
-           {
-                makeBrick.GetComponent<Brick>().AddTag();
-           }
-       }
+           if (i == 8 || i == 19 || i == 35 || i == 46) makeBrick.GetComponent<Brick>().AddTag();
+           else if (i >= 24 &&  i <= 30) makeBrick.GetComponent<Brick>().AddTag();
+        }
    }
     public void DeleteBrick()
     {
