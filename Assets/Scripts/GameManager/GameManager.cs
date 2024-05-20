@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
+
+    private void Start()
+    {
+        SoundManager.instance.PlayBGM("main");
+    }
+
     public void GameOver()
     {
         gameOverPanel.SetActive(true);

@@ -28,6 +28,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Paddle") || collision.gameObject.CompareTag("brick"))
         {
+            SoundManager.instance.PlaySE("brick");
             // 충돌 지점의 노멀 벡터를 가져옵니다.
             Vector2 normal = collision.contacts[0].normal;
             // 방향 벡터를 충돌 지점의 노멀 벡터를 기준으로 반사합니다.
