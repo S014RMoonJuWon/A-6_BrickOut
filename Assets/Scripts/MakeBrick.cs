@@ -52,6 +52,7 @@ public class MakeBrick : MonoBehaviour
             float y = (i / 15) * 1.3f;
 
             makeBrick.transform.position = new Vector2(x, y);
+            makeBrick.GetComponent<Brick>().BrickColor(brickList[Random.Range(0, 5)]);
         }
     }
 
@@ -66,6 +67,7 @@ public class MakeBrick : MonoBehaviour
             float y = (i / 11) * 1.3f;
 
             makeBrick.transform.position = new Vector2(x, y);
+            makeBrick.GetComponent<Brick>().BrickColor(brickList[Random.Range(0, 5)]);
         }
     }
 }
