@@ -32,7 +32,6 @@ public class StartButton : MonoBehaviour
         easyButton.onClick.AddListener(() => SetDifficulty(Difficulty.Easy));
         normalButton.onClick.AddListener(() => SetDifficulty(Difficulty.Normal));
         hardButton.onClick.AddListener(() => SetDifficulty(Difficulty.Hard));
-        
     }
     public void SetDifficulty(Difficulty difficulty)
     {
@@ -51,6 +50,10 @@ public class StartButton : MonoBehaviour
     }
     public void OnClickNameBtn()
     {
+        if (inputPlayerName == null)
+        {
+            inputPlayerName.text = "AAA";
+        }
         DataManager.instance.playerName = inputPlayerName.text;
         playerNameBox.SetActive(false);
         levelBox.SetActive(true);
