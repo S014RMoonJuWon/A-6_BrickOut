@@ -31,10 +31,11 @@ public class SideMovement : MonoBehaviour
     {
         ApplyMovement(movementDirection);
     }
-
+    
     private void Move(Vector2 direction)
     {
         movementDirection = direction;
+       
     }
 
     private void ApplyMovement(Vector2 direction)
