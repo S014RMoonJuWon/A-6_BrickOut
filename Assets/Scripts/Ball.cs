@@ -38,8 +38,9 @@ public class Ball : MonoBehaviour
             Vector2 normal = collision.contacts[0].normal;
             //// 방향 벡터를 충돌 지점의 노멀 벡터를 기준으로 반사합니다.
             direction = Vector2.Reflect(direction.normalized, normal);
-
-        }
+            
+            
+         }
 
         if (collision.gameObject.CompareTag("death"))
         {

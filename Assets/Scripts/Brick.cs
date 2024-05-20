@@ -42,6 +42,7 @@ public class Brick : MonoBehaviour
     public void BrickColor(int color)
     {
         brickRenderer.sprite = Resources.Load<Sprite>($"Images/Bricks/brick{color}");
+        brickRenderer.color = new (255, 255, 255);
         life = color;
         score = 10 * (color + 1);
     }
