@@ -1,35 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class Brick : MonoBehaviour
 {
-    public GameObject brick;
+    public Score score;
 
-    public TextMeshProUGUI scoreTxt;
+    public SpriteRenderer brickRenderer;
 
-    [SerializeField] Score score;
-
-    private void Awake()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-
-    }
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+        score.UpdateScoreText(1);
         Destroy(this.gameObject);
-        score.score += 1;
+    }
+    public void BrickColor(int color)
+    {
+        brickRenderer.sprite = Resources.Load<Sprite>($"Images/Bricks/brick{color}");
     }
 }

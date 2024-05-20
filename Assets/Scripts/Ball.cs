@@ -5,7 +5,6 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public GameManager GameManager;
-    public float BallOut = -5f;
     public float speed;
 
     public bool isFire;
@@ -21,14 +20,6 @@ public class Ball : MonoBehaviour
     {
         if (isFire)
             transform.Translate(direction * speed * Time.deltaTime);
-
-        if (transform.position.y < BallOut)
-        {
-            Debug.Log("BallOut!");
-            GameManager.GameOver();
-            isFire = false;
-        }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,6 +30,12 @@ public class Ball : MonoBehaviour
             Vector2 normal = collision.contacts[0].normal;
             // 방향 벡터를 충돌 지점의 노멀 벡터를 기준으로 반사합니다.
             direction = Vector2.Reflect(direction, normal).normalized;
+        }
+        if (collision.gameObject.CompareTag("death"))
+        {
+            Destroy(this.gameObject);
+            Debug.Log("BallOut!");
+            GameManager.GameOver();
         }
     }
 }

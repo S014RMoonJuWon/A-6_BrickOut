@@ -6,22 +6,27 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    public TextMeshProUGUI scoreTxt;
+    public TMP_Text scoreTxt;
 
-    public int score { get; set; }
+    private int score = 0;
 
     private void Awake()
     {
-        score = 0;
+        if (scoreTxt == null)
+        {
+            Debug.LogError("Score Text is not assigned in the inspector.");
+        }
     }
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
+    public void UpdateScoreText(int value)
     {
+        Debug.Log(scoreTxt.text);
+        score += value;
+        Debug.Log(score);
         scoreTxt.text = $"Score : {score}";
+    }
+    private void Update()
+    {
+
     }
 }
