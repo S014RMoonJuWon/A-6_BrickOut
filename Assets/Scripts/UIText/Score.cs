@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
@@ -10,23 +11,9 @@ public class Score : MonoBehaviour
 
     private int score = 0;
 
-    private void Awake()
-    {
-        if (scoreTxt == null)
-        {
-            Debug.LogError("Score Text is not assigned in the inspector.");
-        }
-    }
-
     public void UpdateScoreText(int value)
     {
-        Debug.Log(scoreTxt.text);
         score += value;
-        Debug.Log(score);
-        scoreTxt.text = $"Score : {score}";
-    }
-    private void Update()
-    {
-
+        scoreTxt.text = $"Score :{score}";
     }
 }

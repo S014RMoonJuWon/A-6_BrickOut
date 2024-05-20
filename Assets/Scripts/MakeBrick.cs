@@ -57,7 +57,7 @@ public class MakeBrick : MonoBehaviour
     }
 
    private  void EasyLevel()
-    {;
+    {
         camera.orthographicSize = 6;
         for (int i = 0; i < 33; i++)
         {

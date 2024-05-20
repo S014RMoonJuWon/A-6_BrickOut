@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    public Score score;
+
     private void Awake()
     {
         if (Instance == null)
@@ -30,5 +32,10 @@ public class GameManager : MonoBehaviour
     public void OnMainMenuButtonClick()
     {
         LoadMainMenu();
+    }
+
+    public void GetScore(int value)
+    {
+        score.UpdateScoreText(value);
     }
 }

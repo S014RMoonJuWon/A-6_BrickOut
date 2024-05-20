@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Ball : MonoBehaviour
 {
     public GameManager GameManager;
     public float speed;
+    public Score score;
 
     public bool isFire;
 
@@ -36,6 +38,7 @@ public class Ball : MonoBehaviour
             Destroy(this.gameObject);
             Debug.Log("BallOut!");
             GameManager.GameOver();
+            score.UpdateScoreText(1);
         }
     }
 }
