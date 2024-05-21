@@ -14,6 +14,8 @@ public class MakeBrick : MonoBehaviour
 
     public int stageCount = 0;
 
+    public List<GameObject> brickList = new List<GameObject>();
+
     private string objectTag = "DeleteBrick";
 
     Stage stage;
@@ -28,6 +30,7 @@ public class MakeBrick : MonoBehaviour
             case 0:
                 stage.EasyStage();
                 EasyLevel();
+                Debug.Log(brickList.Count);
                 break;
             case 1: NormalLevel();
                 break;
@@ -82,6 +85,7 @@ public class MakeBrick : MonoBehaviour
 
 
             GetOption(makeBrick, i, currentStr);
+            if (makeBrick.tag == "brick") brickList.Add(makeBrick);
         }
     }
 

@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    public MakeBrick makeBrick;
+
     public Score score;
+    public Result result;
 
     private void Awake()
     {
@@ -44,5 +47,16 @@ public class GameManager : MonoBehaviour
     public void GetScore(int value)
     {
         score.UpdateScoreText(value);
+        RemoveRandomBrick();
+        Debug.Log(makeBrick.brickList.Count);
+        if (makeBrick.brickList == null) result.Winner();
+    }
+    private void RemoveRandomBrick()
+    {
+        if (makeBrick.brickList != null)
+        {
+            int num = Random.Range(0, makeBrick.brickList.Count);
+            makeBrick.brickList.RemoveAt(num);
+        }
     }
 }
