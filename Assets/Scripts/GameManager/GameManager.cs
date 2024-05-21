@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public MakeBrick makeBrick;
-
     public Result result;
+
     public GameObject EndPanel;
 
     [SerializeField] private TMP_Text currentScoreTxt;
