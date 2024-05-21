@@ -12,12 +12,16 @@ public class GameManager : MonoBehaviour
 
     public Score score;
 
+    public int lifeCount { get; set; }
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
+        lifeCount = 2;
+      
     }
 
     private void Start()
