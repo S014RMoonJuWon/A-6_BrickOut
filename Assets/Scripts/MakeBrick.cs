@@ -14,6 +14,8 @@ public class MakeBrick : MonoBehaviour
 
     public int stageCount = 0;
 
+    public List<GameObject> brickList = new List<GameObject>();
+
     private string objectTag = "DeleteBrick";
 
     Stage stage;
@@ -29,9 +31,15 @@ public class MakeBrick : MonoBehaviour
                 stage.EasyStage();
                 EasyLevel();
                 break;
-            case 1: NormalLevel();
+
+            case 1: 
+                stage.NormalStage(); 
+                NormalLevel();
                 break;
-            case 2: HardLevel();
+
+            case 2: 
+                stage.HardStage();
+                HardLevel();
                 break;
         }
         DeleteBrick();
@@ -40,7 +48,11 @@ public class MakeBrick : MonoBehaviour
     {
         camera.orthographicSize = 15;
         paddle.transform.position = new Vector2(0, -12.5f);
-        for (int i = 0; i < 372; i++)
+
+        string currentStr = stage.stageNumber[stageCount].Replace("\n", "");
+        currentStr = currentStr.Replace(" ", "");
+
+        for (int i = 0; i < currentStr.Length; i++)
         {
             GameObject makeBrick = Instantiate(brick, this.transform);
 
@@ -48,21 +60,30 @@ public class MakeBrick : MonoBehaviour
             float y = (i / 31) * 1.3f;
 
             makeBrick.transform.position = new Vector2(x, y - 3f);
+
+            GetOption(makeBrick, i, currentStr);
+            if (makeBrick.tag == "brick") brickList.Add(makeBrick);
         }
     }
     private void NormalLevel()
     {
         camera.orthographicSize = 10;
         paddle.transform.position = new Vector2(0, -8.0f);
-        for (int i = 0; i < 75; i++) 
+
+        string currentStr = stage.stageNumber[stageCount].Replace("\n", "");
+        currentStr = currentStr.Replace(" ", "");
+
+        for (int i = 0; i < currentStr.Length; i++) 
         {
             GameObject makeBrick = Instantiate(brick, this .transform);
 
-            float x = (i % 15) * 1.4f - 10f;
-            float y = (i / 15) * 1.3f;
+            float x = (i % 21) * 1.55f - 15.5f;
+            float y = (i / 21) * 0.65f;
 
             makeBrick.transform.position = new Vector2(x, y);
 
+            GetOption(makeBrick, i, currentStr);
+            if (makeBrick.tag == "brick") brickList.Add(makeBrick);
         }
     }
     public void EasyLevel()
@@ -82,6 +103,7 @@ public class MakeBrick : MonoBehaviour
 
 
             GetOption(makeBrick, i, currentStr);
+            if (makeBrick.tag == "brick") brickList.Add(makeBrick);
         }
     }
 

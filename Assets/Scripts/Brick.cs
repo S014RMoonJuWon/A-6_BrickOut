@@ -18,7 +18,7 @@ public class Brick : MonoBehaviour
         switch (spriteName)
         {
             case "brick0":
-                Destroy(this.gameObject);
+                --life;
                 break;
             case "brick1":
                 --life;

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class InputController : PaddleController
 {
-    
     private SideMovement sideMovement;
 
     private void Awake()
