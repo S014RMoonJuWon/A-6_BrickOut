@@ -41,13 +41,13 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-        }
-        lifeCount = 2;
-      
+        }   
         else if (Instance != this)
         {
             Destroy(gameObject);
         }
+        lifeCount = 2;
+
     }
 
     private void Start()
