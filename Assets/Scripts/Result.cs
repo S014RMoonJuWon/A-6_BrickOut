@@ -28,6 +28,8 @@ public class Result : MonoBehaviour
         stageClearImage.SetActive(false);
 
         GameManager.Instance.EndPanel.SetActive(true);
+        GameManager.Instance.homeBtn.SetActive(false);
+        GameManager.Instance.retryBtn.SetActive(false);
         GameManager.Instance.UpdateHighScores();
         GameManager.Instance.UpdateTextUI();
     }

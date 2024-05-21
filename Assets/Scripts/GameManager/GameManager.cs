@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public Result result;
 
     public GameObject EndPanel;
+    public GameObject homeBtn;
+    public GameObject retryBtn;
+    public GameObject nextStageBtn;
 
     [SerializeField] private TMP_Text currentScoreTxt;
     [SerializeField] private TMP_Text endScoreTxt;
@@ -61,16 +64,23 @@ public class GameManager : MonoBehaviour
     {
         SoundManager.instance.StopBgm("main");
         EndPanel.SetActive(true);
+        nextStageBtn.SetActive(false);
         UpdateHighScores();
         UpdateTextUI();
     }
-    public void LoadMainMenu()
+    public void OnRetryButtonClick()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void OnMainMenuButtonClick()
     {
-        LoadMainMenu();
+        DataManager.instance.stageCount = 0;
+        SceneManager.LoadScene(0);
+    }
+    public void OnNextStageBtn()
+    {
+        DataManager.instance.stageCount++;
+        SceneManager.LoadScene(1);
     }
 
     public void GetScore(int value)

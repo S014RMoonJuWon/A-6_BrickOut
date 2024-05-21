@@ -12,8 +12,6 @@ public class MakeBrick : MonoBehaviour
     public GameObject brick;
     public GameObject paddle;
 
-    public int stageCount = 0;
-
     public List<GameObject> brickList = new List<GameObject>();
 
     private string objectTag = "DeleteBrick";
@@ -49,7 +47,7 @@ public class MakeBrick : MonoBehaviour
         camera.orthographicSize = 15;
         paddle.transform.position = new Vector2(0, -12.5f);
 
-        string currentStr = stage.stageNumber[stageCount].Replace("\n", "");
+        string currentStr = stage.stageNumber[DataManager.instance.stageCount].Replace("\n", "");
         currentStr = currentStr.Replace(" ", "");
 
         for (int i = 0; i < currentStr.Length; i++)
@@ -57,7 +55,7 @@ public class MakeBrick : MonoBehaviour
             GameObject makeBrick = Instantiate(brick, this.transform);
 
             float x = (i % 31) * 1.6f - 24.0f;
-            float y = (i / 31) * 1.3f;
+            float y = (i / 31) * 0.7f;
 
             makeBrick.transform.position = new Vector2(x, y - 3f);
 
@@ -70,7 +68,7 @@ public class MakeBrick : MonoBehaviour
         camera.orthographicSize = 10;
         paddle.transform.position = new Vector2(0, -8.0f);
 
-        string currentStr = stage.stageNumber[stageCount].Replace("\n", "");
+        string currentStr = stage.stageNumber[DataManager.instance.stageCount].Replace("\n", "");
         currentStr = currentStr.Replace(" ", "");
 
         for (int i = 0; i < currentStr.Length; i++) 
@@ -89,7 +87,7 @@ public class MakeBrick : MonoBehaviour
     public void EasyLevel()
     {
         camera.orthographicSize = 6;
-        string currentStr = stage.stageNumber[stageCount].Replace("\n", "");
+        string currentStr = stage.stageNumber[DataManager.instance.stageCount].Replace("\n", "");
         currentStr = currentStr.Replace(" ", "");
 
         for (int i = 0; i < currentStr.Length; i++)
