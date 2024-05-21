@@ -34,12 +34,16 @@ public class GameManager : MonoBehaviour
     private string secondScorePlayer = "";
     private string thirdScorePlayer = "";
 
+    public int lifeCount { get; set; }
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
+        lifeCount = 2;
+      
         else if (Instance != this)
         {
             Destroy(gameObject);
