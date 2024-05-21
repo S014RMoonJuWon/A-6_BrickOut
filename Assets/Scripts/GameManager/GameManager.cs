@@ -5,16 +5,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public GameObject MakeBrick;
-
     public MakeBrick makeBrick;
 
-    public Score score;
     public Result result;
     public GameObject EndPanel;
 
@@ -57,9 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameOverPanel.SetActive(true);
         SoundManager.instance.StopBgm("main");
-        MakeBrick.SetActive(false);
         EndPanel.SetActive(true);
         UpdateHighScores();
         UpdateTextUI();
@@ -75,8 +71,10 @@ public class GameManager : MonoBehaviour
 
     public void GetScore(int value)
     {
-        score.UpdateScoreText(value);
+        currentScore += value;
+        currentScoreTxt.text = $"Score : {currentScore}";
         RemoveRandomBrick();
+
         Debug.Log(makeBrick.brickList.Count);
         if (makeBrick.brickList.Count == 0) result.Winner();
     }
@@ -87,12 +85,9 @@ public class GameManager : MonoBehaviour
             int num = Random.Range(0, makeBrick.brickList.Count);
             makeBrick.brickList.RemoveAt(num);
         }
-        currentScore += value;
-
-        currentScoreTxt.text = $"Score : {currentScore}";
     }
 
-    private void UpdateHighScores()
+    public void UpdateHighScores()
     {
         if (currentScore > highScore)
         {
@@ -121,7 +116,7 @@ public class GameManager : MonoBehaviour
 
         SaveHighScore();
     }
-    private void UpdateTextUI()
+    public void UpdateTextUI()
     {
         currentScoreTxt.text = $"Score : {currentScore}";
         endScoreTxt.text = $"{currentScore}";

@@ -9,11 +9,7 @@ public class Stage : MonoBehaviour
     {
         stageNumber[0] =
 
-            "12021111111\n" +
-            "12022222221\n" +
-            "12000000021\n" +
-            "12222222021\n" +
-            "11111112021";
+            "12";
 
         stageNumber[1] =
 
