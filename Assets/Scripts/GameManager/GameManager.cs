@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        lifeCount = 2;
+        lifeCount = 3;
 
     }
 

@@ -21,13 +21,13 @@ public class Result : MonoBehaviour
     private void NextBtn()
     {
         nextBtn.SetActive(true);
-        GameManager.Instance.EndPanel.SetActive(true);
     }
     public void OnEndPanel()
     {
         nextBtn.SetActive(false);
         stageClearImage.SetActive(false);
 
+        GameManager.Instance.EndPanel.SetActive(true);
         GameManager.Instance.UpdateHighScores();
         GameManager.Instance.UpdateTextUI();
     }

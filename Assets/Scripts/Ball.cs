@@ -65,7 +65,6 @@ public class Ball : MonoBehaviour
                 Rigidbody2D rb = GetComponent<Rigidbody2D>();
                 direction = firstDir;
                 rb.isKinematic = true;
-
             }
 
             if (lifeCount == 0)
