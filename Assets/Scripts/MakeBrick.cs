@@ -52,7 +52,7 @@ public class MakeBrick : MonoBehaviour
         string currentStr = stage.stageNumber[stageCount].Replace("\n", "");
         currentStr = currentStr.Replace(" ", "");
 
-        for (int i = 0; i < 372; i++)
+        for (int i = 0; i < currentStr.Length; i++)
         {
             GameObject makeBrick = Instantiate(brick, this.transform);
 

@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         score.UpdateScoreText(value);
         RemoveRandomBrick();
         Debug.Log(makeBrick.brickList.Count);
-        if (makeBrick.brickList == null) result.Winner();
+        if (makeBrick.brickList.Count == 0) result.Winner();
     }
     private void RemoveRandomBrick()
     {
