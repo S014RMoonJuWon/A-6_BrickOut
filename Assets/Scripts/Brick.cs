@@ -12,6 +12,9 @@ public class Brick : MonoBehaviour
     private int life;
     private int score;
 
+    public GameObject item;
+    public Item itemSc;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         string spriteName = brickRenderer.sprite.name;
@@ -19,6 +22,10 @@ public class Brick : MonoBehaviour
         {
             case "brick0":
                 --life;
+                GameObject makeItem = Instantiate(item, this.transform);
+                makeItem.transform.SetParent(null);
+                makeItem.transform.position = this.transform.position;
+                itemSc.ItemImages();
                 break;
             case "brick1":
                 --life;
