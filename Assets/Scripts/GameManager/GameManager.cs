@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -50,6 +46,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         lifeCount = 3;
+        currentScore = DataManager.instance.saveScoreData;
+        currentScoreTxt.text = "Score :" + currentScore;
     }
 
     private void Start()
@@ -69,10 +67,12 @@ public class GameManager : MonoBehaviour
     }
     public void OnRetryButtonClick()
     {
+        DataManager.instance.saveScoreData = 0;
         SceneManager.LoadScene(1);
     }
     public void OnMainMenuButtonClick()
     {
+        DataManager.instance.saveScoreData = 0;
         DataManager.instance.stageCount = 0;
         SceneManager.LoadScene(0);
     }
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
             thirdScore = currentScore;
             thirdScorePlayer = DataManager.instance.playerName;
         }
-
+        DataManager.instance.saveScoreData =  currentScore;
         SaveHighScore();
     }
     public void UpdateTextUI()
