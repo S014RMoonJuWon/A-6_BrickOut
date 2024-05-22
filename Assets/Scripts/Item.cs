@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] float fallSpeed = 5f;
+    [SerializeField] float fallSpeed = 1f;
 
     public SpriteRenderer itemSr;
     void Start()
     {
-        
+        fallSpeed = DataManager.instance.level + fallSpeed;
     }
     void Update()
     {
@@ -18,9 +18,19 @@ public class Item : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (ItemManager.Instance.ballSc.isFire == false)
+        {
+            return;
+        }
+
         if (collision.gameObject.CompareTag("Paddle"))
         {
             UseItem();
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("death"))
+        {
             Destroy(this.gameObject);
         }
     }
