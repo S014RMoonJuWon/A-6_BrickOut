@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    private float fallSpeed = 1f;
+    [SerializeField] float fallSpeed = 5f;
 
     public SpriteRenderer itemSr;
     void Start()
@@ -26,7 +26,7 @@ public class Item : MonoBehaviour
     }
     public void ItemImages()
     {
-        itemSr.sprite = Resources.Load<Sprite>($"Images/Item/Item{3}");
+        itemSr.sprite = Resources.Load<Sprite>($"Images/Item/Item{Random.Range(0,8)}");
     }
 
     void UseItem()

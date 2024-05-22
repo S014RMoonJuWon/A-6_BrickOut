@@ -19,6 +19,4 @@ public class DataManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
-
-
 }

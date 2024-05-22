@@ -13,7 +13,7 @@ public class SideMovement : MonoBehaviour
     private Vector2 movementDirection = Vector2.zero;
     public bool isFire { get;private set; }
 
-    [SerializeField] private float speed = 10;
+    public float speed = 10;
 
     private void Awake()
     {

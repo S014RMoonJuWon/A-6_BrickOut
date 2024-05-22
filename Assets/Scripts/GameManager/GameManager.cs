@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         lifeCount = 3;
-
     }
 
     private void Start()
@@ -92,7 +91,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(makeBrick.brickList.Count);
         if (makeBrick.brickList.Count == 0) result.Winner();
     }
-    private void RemoveRandomBrick()
+    public void RemoveRandomBrick()
     {
         if (makeBrick.brickList != null)
         {
