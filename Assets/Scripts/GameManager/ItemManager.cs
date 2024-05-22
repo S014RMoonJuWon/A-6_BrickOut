@@ -88,7 +88,7 @@ public class ItemManager : MonoBehaviour
                 break;
 
             case "item5":
-                if (GameManager.Instance.lifeCount > 3)
+                if (GameManager.Instance.lifeCount > 2)
                 {
                     break;
                 }

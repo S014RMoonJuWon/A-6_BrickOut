@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     [SerializeField] float fallSpeed = 1f;
 
     public SpriteRenderer itemSr;
+
     void Start()
     {
         fallSpeed = DataManager.instance.level + fallSpeed;
@@ -18,6 +19,11 @@ public class Item : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("death"))
+        {
+            Destroy(this.gameObject);
+        }
+
         if (ItemManager.Instance.ballSc.isFire == false)
         {
             return;
@@ -26,11 +32,6 @@ public class Item : MonoBehaviour
         if (collision.gameObject.CompareTag("Paddle"))
         {
             UseItem();
-            Destroy(this.gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("death"))
-        {
             Destroy(this.gameObject);
         }
     }

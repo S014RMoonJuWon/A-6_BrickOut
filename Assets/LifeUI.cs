@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class LifeUI : MonoBehaviour
 {
-    int lifeCount;
     public GameObject lifeIconPrefab; 
     public Transform gridLayoutGroup;
 
     private void Start()
     {
-        lifeCount = GameManager.Instance.lifeCount;
-        UpdateLives(lifeCount);
+        UpdateLives(GameManager.Instance.lifeCount);
     }
 
     public void UpdateLives(int life)
@@ -30,17 +28,16 @@ public class LifeUI : MonoBehaviour
 
     public void LoseLife()
     {
-        if (lifeCount > 0)
+        if (GameManager.Instance.lifeCount > 0)
         {
-            lifeCount--;
-            UpdateLives(lifeCount);
+            GameManager.Instance.lifeCount--;
+            UpdateLives(GameManager.Instance.lifeCount);
         }
     }
 
     public void GainLife()
     {
-        lifeCount++;
-        UpdateLives(lifeCount);
+        GameManager.Instance.lifeCount++;
+        UpdateLives(GameManager.Instance.lifeCount);
     }
-    
 }

@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     private string secondScorePlayer = "";
     private string thirdScorePlayer = "";
 
-    public int lifeCount { get; set; }
+    public int lifeCount = 0;
 
     private void Awake()
     {
