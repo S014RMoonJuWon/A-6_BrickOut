@@ -13,7 +13,9 @@ public class Brick : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         string spriteName = brickRenderer.sprite.name;
-        life--;
+        if (spriteName == "brick5") { }
+        else life--;
+
         if (life == 0)
         {
             int num = Random.Range(0, 100);
