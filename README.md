@@ -26,16 +26,16 @@
   <h4>공 발사 : Spacebar
 ---
 ## 📚️기술스택
-
+- <h4>Singleton : secene 전환시 필요한 데이터 삭제 방지
+- <h4>PlayerPrefs : 게임 내 최고점수 및 닉네임 저장
 ---
 ## 📁와이어프레임
 ![Break Out! 기본 구조](https://github.com/S014RMoonJuWon/A-6_BrickOut/assets/167048223/786b2d32-988d-4fdb-a762-f7615845ec7e)
 
 ![GameScene와이어 프레임](https://github.com/S014RMoonJuWon/A-6_BrickOut/assets/167048223/048dddc9-4d9d-4bb5-a34f-15ff0941c40f)
 
-
 ---
 ## 📎링크
 - #### [Notion](https://www.notion.so/teamsparta/6nity_Hub-0afde3dd9b0c4a8bb4a0de937d63e48c)
-- #### [Youtube]()
+- #### [Youtube](https://youtu.be/EYKIOSQ0Zwg)
 ---
