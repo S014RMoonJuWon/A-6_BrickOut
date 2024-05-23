@@ -1,4 +1,4 @@
-![6주차 프로젝트](https://github.com/S014RMoonJuWon/A-6_BrickOut/blob/main/6%EC%A3%BC%EC%B0%A8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.png)
+![입문프로젝트 3주차](https://github.com/S014RMoonJuWon/A-6_BrickOut/blob/main/%EC%9E%85%EB%AC%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%203%EC%A3%BC%EC%B0%A8.png)
 
 ---
 ## 👨‍🏫프로젝트 소개
