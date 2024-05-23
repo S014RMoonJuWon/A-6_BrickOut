@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,13 +29,12 @@ public class StartButton : MonoBehaviour
         easyButton.onClick.AddListener(() => SetDifficulty(Difficulty.Easy));
         normalButton.onClick.AddListener(() => SetDifficulty(Difficulty.Normal));
         hardButton.onClick.AddListener(() => SetDifficulty(Difficulty.Hard));
-        
     }
     public void SetDifficulty(Difficulty difficulty)
     {
         DataManager.instance.level = (int)difficulty;
         loadingImages.SetActive(true);
-        Invoke("StartGame", 1.5f);
+        Invoke("StartGame", 4f);
     }
     public void OnplayerNamebox()
     {
@@ -51,6 +47,10 @@ public class StartButton : MonoBehaviour
     }
     public void OnClickNameBtn()
     {
+        if (inputPlayerName == null)
+        {
+            inputPlayerName.text = "AAA";
+        }
         DataManager.instance.playerName = inputPlayerName.text;
         playerNameBox.SetActive(false);
         levelBox.SetActive(true);

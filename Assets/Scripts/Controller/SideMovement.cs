@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SideMovement : MonoBehaviour
 {
@@ -13,10 +11,12 @@ public class SideMovement : MonoBehaviour
     private Vector2 movementDirection = Vector2.zero;
     public bool isFire { get;private set; }
 
-    [SerializeField] private float speed = 10;
+    public float speed = 10;
 
     private void Awake()
     {
+        rb = ball.GetComponent<Rigidbody2D>();
+        rb.isKinematic = true; // 공이 발사되기 전에는 물리적 영향을 받지 않도록 설정    
         controller = GetComponent<PaddleController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
     }
@@ -29,28 +29,27 @@ public class SideMovement : MonoBehaviour
     {
         ApplyMovement(movementDirection);
     }
-
+    
     private void Move(Vector2 direction)
     {
         movementDirection = direction;
+       
     }
 
     private void ApplyMovement(Vector2 direction)
     {
         direction = direction * speed;
+        //transform.position =new Vector2( Mathf.Clamp(transform.position.x, -7.6f, 7.7f),transform.position.y);
         movementRigidbody.velocity = direction;
     }
 
     internal void ApplyFire(bool isPressed)
     {
-        if (rb == null)
+        if (isPressed)
         {
             isFire = isPressed;
-            rb = ball.AddComponent<Rigidbody2D>();
-            rb.gravityScale = 0f;
+            rb.isKinematic = false;
             ball.GetComponent<Ball>().isFire = true;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;            
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
             ball.transform.parent = null;
         }
     }
