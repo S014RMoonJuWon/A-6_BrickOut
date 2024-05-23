@@ -25,6 +25,8 @@
   <h4>좌 우 : A, D Key
   <h4>공 발사 : Spacebar
 ---
+## 🔧개발 프로세스
+![프로젝트 개발 프로세스](https://github.com/S014RMoonJuWon/A-6_BrickOut/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B0%9C%EB%B0%9C%20%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4.png)
 ## 📚️기술스택
 - <h4>Singleton : secene 전환시 필요한 데이터 삭제 방지
 - <h4>PlayerPrefs : 게임 내 최고점수 및 닉네임 저장
