@@ -14,6 +14,8 @@
 - <h4>팀원 : 최관호
 ---
 ## 🎮게임소개
+![BreakOut! 메인화면](https://github.com/S014RMoonJuWon/A-6_BrickOut/assets/167048223/cbd4b2cd-95f8-4ebf-a8df-0be52474b10f)
+
 - #### 게임 이름
   ### `BreakOut!`
 - <h4>게임 설명 
