@@ -38,6 +38,6 @@
 
 ---
 ## 📎링크
-- #### [Notion](https://www.notion.so/teamsparta/6nity_Hub-0afde3dd9b0c4a8bb4a0de937d63e48c)
-- #### [Youtube](https://youtu.be/EYKIOSQ0Zwg)
+- ### <img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=notion&logoColor=white"/> [Notion](https://www.notion.so/teamsparta/6nity_Hub-0afde3dd9b0c4a8bb4a0de937d63e48c)
+- ### <img src="https://img.shields.io/badge/Youtube-FF0000?style=flat&logo=youtube&logoColor=white"/> [Youtube](https://youtu.be/EYKIOSQ0Zwg)
 ---
